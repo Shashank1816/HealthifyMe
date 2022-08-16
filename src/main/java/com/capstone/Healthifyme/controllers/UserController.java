@@ -34,8 +34,10 @@ public class UserController {
 	}
 
 
-//	@PostMapping(path="/users")
-//	public void addUser() {
-//		userRepo.save(user);
-//	}
+	@PostMapping(path="/users")
+	public void addUser(@RequestBody User user) {
+		System.out.println("Adding user : ");
+		System.out.println(user);
+		userRepo.save(user);
+	}
 }
