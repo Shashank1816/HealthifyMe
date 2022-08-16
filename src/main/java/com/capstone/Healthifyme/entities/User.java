@@ -27,6 +27,10 @@ public class User {
 	private int user_id;
 
 	private String email;
+	
+	private String password;
+	
+	private String gender;
 
 	private String name;
 
@@ -96,10 +100,28 @@ public class User {
 		this.plan = plan;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
 	@Override
 	public String toString() {
-		return "User [user_id=" + user_id + ", email=" + email + ", name=" + name + ", age=" + age + ", weight="
-				+ weight + ", height=" + height + ", plan=" + plan + "]";
+		return "User [user_id=" + user_id + ", email=" + email + ", password=" + password + ", gender=" + gender
+				+ ", name=" + name + ", age=" + age + ", weight=" + weight + ", height=" + height + ", plan=" + plan
+				+ "]";
 	}
+
 
 }

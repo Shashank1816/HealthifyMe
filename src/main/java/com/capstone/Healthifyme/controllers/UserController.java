@@ -5,8 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+=======
+>>>>>>> 2c05a9b749ed17caf5c11e30161d3d10897b88ca
 import org.springframework.web.bind.annotation.RestController;
 
 import com.capstone.Healthifyme.entities.User;
