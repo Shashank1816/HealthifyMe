@@ -49,29 +49,29 @@ public class Plan {
 		this.plan_name = plan_name;
 	}
 
-	public Set<User> getUsers() {
-		return users;
-	}
+//	public Set<User> getUsers() {
+//		return users;
+//	}
+//
+//	public void setUsers(Set<User> users) {
+//		this.users = users;
+//	}
 
-	public void setUsers(Set<User> users) {
-		this.users = users;
-	}
-
-	public Diet getDiet() {
-		return diet;
-	}
-
-	public void setDiet(Diet diet) {
-		this.diet = diet;
-	}
-
-	public Workout getWorkout() {
-		return workout;
-	}
-
-	public void setWorkout(Workout workout) {
-		this.workout = workout;
-	}
+//	public Diet getDiet() {
+//		return diet;
+//	}
+//
+//	public void setDiet(Diet diet) {
+//		this.diet = diet;
+//	}
+//
+//	public Workout getWorkout() {
+//		return workout;
+//	}
+//
+//	public void setWorkout(Workout workout) {
+//		this.workout = workout;
+//	}
 
 	@Override
 	public String toString() {
