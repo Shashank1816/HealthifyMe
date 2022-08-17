@@ -1,5 +1,7 @@
 package com.capstone.Healthifyme.entities;
 
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -27,9 +30,9 @@ public class User {
 	private int user_id;
 
 	private String email;
-	
+
 	private String password;
-	
+
 	private String gender;
 
 	private String name;
@@ -43,6 +46,39 @@ public class User {
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "plan_id")
 	private Plan plan;
+
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private Set<Calorie> calorietrackers;
+
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private Set<Water> watertrackers;
+
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	private Set<Weight> weighttrackers;
+
+	public Set<Calorie> getCalorietrackers() {
+		return calorietrackers;
+	}
+
+	public void setCalorietrackers(Set<Calorie> calorietrackers) {
+		this.calorietrackers = calorietrackers;
+	}
+
+	public Set<Water> getWatertrackers() {
+		return watertrackers;
+	}
+
+	public void setWatertrackers(Set<Water> watertrackers) {
+		this.watertrackers = watertrackers;
+	}
+
+	public Set<Weight> getWeighttrackers() {
+		return weighttrackers;
+	}
+
+	public void setWeighttrackers(Set<Weight> weighttrackers) {
+		this.weighttrackers = weighttrackers;
+	}
 
 	public int getUser_id() {
 		return user_id;
@@ -120,8 +156,8 @@ public class User {
 	public String toString() {
 		return "User [user_id=" + user_id + ", email=" + email + ", password=" + password + ", gender=" + gender
 				+ ", name=" + name + ", age=" + age + ", weight=" + weight + ", height=" + height + ", plan=" + plan
-				+ "]";
+				+ ", calorietrackers=" + calorietrackers + ", watertrackers=" + watertrackers + ", weighttrackers="
+				+ weighttrackers + "]";
 	}
-
 
 }

@@ -26,8 +26,7 @@ public class UserController {
 		return userRepo.findAll();// we need to return user.findAll();
 	}
 	
-	@PostMapping(path = "/loginuser")
-	
+	@PostMapping(path = "/login")
 	public User loginUser(@RequestBody User user) {
 		System.out.println("Inside login user post method");
 		return userRepo.findByEmailPass(user.getEmail(),user.getPassword());
