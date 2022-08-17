@@ -98,13 +98,13 @@ public class Diet {
 		this.carb = carb;
 	}
 
-//	public Plan getPlan() {
-//		return plan;
-//	}
-//
-//	public void setPlan(Plan plan) {
-//		this.plan = plan;
-//	}
+	public Plan getPlan() {
+		return plan;
+	}
+
+	public void setPlan(Plan plan) {
+		this.plan = plan;
+	}
 
 	@Override
 	public String toString() {

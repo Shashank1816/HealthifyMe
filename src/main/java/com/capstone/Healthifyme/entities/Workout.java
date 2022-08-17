@@ -17,17 +17,17 @@ public class Workout {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int workout_id;
 
-	private int exercise1;
+	private String exercise1;
 
-	private int exercise2;
+	private String exercise2;
 
-	private int exercise3;
+	private String exercise3;
 
-	private int exercise4;
+	private String exercise4;
 
-	private int exercise5;
+	private String exercise5;
 
-	private int exercise6;
+	private String exercise6;
 
 	private int caloriesBurnt;
 
@@ -42,51 +42,51 @@ public class Workout {
 		this.workout_id = workout_id;
 	}
 
-	public int getExercise1() {
+	public String getExercise1() {
 		return exercise1;
 	}
 
-	public void setExercise1(int exercise1) {
+	public void setExercise1(String exercise1) {
 		this.exercise1 = exercise1;
 	}
 
-	public int getExercise2() {
+	public String getExercise2() {
 		return exercise2;
 	}
 
-	public void setExercise2(int exercise2) {
+	public void setExercise2(String exercise2) {
 		this.exercise2 = exercise2;
 	}
 
-	public int getExercise3() {
+	public String getExercise3() {
 		return exercise3;
 	}
 
-	public void setExercise3(int exercise3) {
+	public void setExercise3(String exercise3) {
 		this.exercise3 = exercise3;
 	}
 
-	public int getExercise4() {
+	public String getExercise4() {
 		return exercise4;
 	}
 
-	public void setExercise4(int exercise4) {
+	public void setExercise4(String exercise4) {
 		this.exercise4 = exercise4;
 	}
 
-	public int getExercise5() {
+	public String getExercise5() {
 		return exercise5;
 	}
 
-	public void setExercise5(int exercise5) {
+	public void setExercise5(String exercise5) {
 		this.exercise5 = exercise5;
 	}
 
-	public int getExercise6() {
+	public String getExercise6() {
 		return exercise6;
 	}
 
-	public void setExercise6(int exercise6) {
+	public void setExercise6(String exercise6) {
 		this.exercise6 = exercise6;
 	}
 
@@ -98,13 +98,13 @@ public class Workout {
 		this.caloriesBurnt = caloriesBurnt;
 	}
 
-//	public Plan getPlan() {
-//		return plan;
-//	}
-//
-//	public void setPlan(Plan plan) {
-//		this.plan = plan;
-//	}
+	public Plan getPlan() {
+		return plan;
+	}
+
+	public void setPlan(Plan plan) {
+		this.plan = plan;
+	}
 
 	@Override
 	public String toString() {
@@ -113,4 +113,5 @@ public class Workout {
 				+ exercise6 + ", caloriesBurnt=" + caloriesBurnt + ", plan=" + plan + "]";
 	}
 
+	
 }
