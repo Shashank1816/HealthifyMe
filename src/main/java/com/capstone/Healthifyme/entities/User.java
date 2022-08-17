@@ -92,13 +92,13 @@ public class User {
 		this.height = height;
 	}
 
-//	public Plan getPlan() {
-//		return plan;
-//	}
-//
-//	public void setPlan(Plan plan) {
-//		this.plan = plan;
-//	}
+	public Plan getPlan() {
+		return plan;
+	}
+
+	public void setPlan(Plan plan) {
+		this.plan = plan;
+	}
 
 	public String getPassword() {
 		return password;
