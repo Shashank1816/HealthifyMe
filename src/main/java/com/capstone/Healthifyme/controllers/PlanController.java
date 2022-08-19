@@ -14,12 +14,12 @@ import com.capstone.Healthifyme.entities.DietToPlan;
 import com.capstone.Healthifyme.entities.PaymentRequest;
 import com.capstone.Healthifyme.entities.Plan;
 import com.capstone.Healthifyme.entities.User;
-<<<<<<< HEAD
+
 import com.capstone.Healthifyme.entities.Workout;
 import com.capstone.Healthifyme.entities.WorkoutToPlan;
-=======
+
 import com.capstone.Healthifyme.repos.DietRepo;
->>>>>>> 324acaa41ac826470f8199e8f86711dc239d4ae9
+
 import com.capstone.Healthifyme.repos.PlanRepo;
 import com.capstone.Healthifyme.repos.UserRepo;
 import com.capstone.Healthifyme.repos.WorkoutRepo;
