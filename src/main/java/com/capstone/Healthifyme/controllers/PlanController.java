@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.capstone.Healthifyme.entities.PaymentRequest;
 import com.capstone.Healthifyme.entities.Plan;
 import com.capstone.Healthifyme.entities.User;
+import com.capstone.Healthifyme.entities.Workout;
+import com.capstone.Healthifyme.entities.WorkoutToPlan;
 import com.capstone.Healthifyme.repos.PlanRepo;
 import com.capstone.Healthifyme.repos.UserRepo;
+import com.capstone.Healthifyme.repos.WorkoutRepo;
 
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
@@ -24,6 +27,9 @@ public class PlanController {
 	
 	@Autowired
 	UserRepo userRepo;
+	
+	@Autowired
+	WorkoutRepo workoutRepo;
 	
 	@GetMapping(path = "/plans")
 	public List<Plan> getPlans(){
@@ -45,6 +51,21 @@ public class PlanController {
 			return "Unsuccessfull";
 		}
 		
+	}
+	
+	
+	@PostMapping(path = "/plans/addWorkoutToPlan")
+	public String addWorkoutToPlan(@RequestBody WorkoutToPlan workoutToPlan) {
+		try {
+			Workout workout = workoutRepo.findById(workoutToPlan.getWorkoutId()).orElse(new Workout());
+			Plan plan = planRepo.findById(workoutToPlan.getPlanId()).orElse(new Plan());
+			plan.setWorkout(workout);
+			planRepo.save(plan);
+			return "Successfull";
+		} catch (Exception e) {
+			// TODO: handle exception
+			return "Unsuccessfull";
+		}
 	}
 
 }
