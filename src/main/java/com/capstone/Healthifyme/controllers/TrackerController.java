@@ -46,6 +46,8 @@ public class TrackerController {
 		return waterRepo.findAll();
 	}
 	
+	
+	
 	@GetMapping(path = "/weight")
 	public List<Weight> getWeight() {
 		System.out.println("Weight endpoint");
