@@ -24,11 +24,5 @@ public class PlanController {
 		return planRepo.findAll();
 	}
 	
-	@PostMapping(path="/plans")
-	public void addUser(@RequestBody Plan plan) {
-		System.out.println("Adding Plan : ");
-		System.out.println(plan);
-		planRepo.save(plan);
-	}
 
 }
