@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -44,6 +46,13 @@ public class TrackerController {
 	public List<Water> getWater() {
 		System.out.println("Water endpoint");
 		return waterRepo.findAll();
+	}
+	//utkarsh check kar lena - teeno trackers ka post request :) 
+	@PostMapping(path="/calorie")
+	public void postcalorie(@RequestBody Calorie cal) {
+		System.out.println("Post request working");
+		System.out.println(cal.getCalories());
+		calorieRepo.save(cal);
 	}
 	
 	
