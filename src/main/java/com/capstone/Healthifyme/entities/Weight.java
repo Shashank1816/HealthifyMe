@@ -28,7 +28,7 @@ public class Weight {
 
 	private int weight;
 
-	@JsonFormat(shape = Shape.STRING, pattern = "yyyy/mm/dd")
+	@JsonFormat(shape = Shape.STRING, pattern = "yyyy-mm-dd")
 	private Date date;
 
 	public int getWeight_id() {

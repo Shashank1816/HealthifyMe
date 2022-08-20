@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
 @Entity
 @Table(name = "water")
@@ -27,7 +28,7 @@ public class Water {
 
 	private int water_count;
 
-	@JsonFormat(pattern = "dd-mm-yyyy")
+	@JsonFormat(shape = Shape.STRING, pattern = "yyyy-mm-dd")
 	private Date date;
 
 	public Date getDate() {
