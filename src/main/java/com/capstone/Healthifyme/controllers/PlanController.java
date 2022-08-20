@@ -15,12 +15,9 @@ import com.capstone.Healthifyme.entities.DietToPlan;
 import com.capstone.Healthifyme.entities.PaymentRequest;
 import com.capstone.Healthifyme.entities.Plan;
 import com.capstone.Healthifyme.entities.User;
-
 import com.capstone.Healthifyme.entities.Workout;
 import com.capstone.Healthifyme.entities.WorkoutToPlan;
-
 import com.capstone.Healthifyme.repos.DietRepo;
-
 import com.capstone.Healthifyme.repos.PlanRepo;
 import com.capstone.Healthifyme.repos.UserRepo;
 import com.capstone.Healthifyme.repos.WorkoutRepo;

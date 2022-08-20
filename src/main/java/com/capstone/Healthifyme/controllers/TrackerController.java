@@ -54,6 +54,15 @@ public class TrackerController {
 		System.out.println("Water endpoint");
 		return waterRepo.findAll();
 	}
+	//utkarsh check kar lena - teeno trackers ka post request :) 
+	@PostMapping(path="/calorie")
+	public void postcalorie(@RequestBody Calorie cal) {
+		System.out.println("Post request working");
+		System.out.println(cal.getCalories());
+		calorieRepo.save(cal);
+	}
+	
+	
 	
 //	@PostMapping(path = "/water")
 //	public Water addWater(@RequestBody Water water) {
