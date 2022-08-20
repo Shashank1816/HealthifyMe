@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,6 +35,16 @@ public class PlanController {
 	@GetMapping(path = "/plans")
 	public List<Plan> getPlans() {
 		return planRepo.findAll();
+	}
+	
+	@PostMapping(path = "/plans")
+	public Plan addPlan(@RequestBody Plan plan) {
+		return planRepo.save(plan);
+	}
+	
+	@GetMapping(path = "/plans/{id}")
+	public Plan getPlan(@PathVariable Integer id) {
+		return planRepo.findById(id).orElse(new Plan());
 	}
 
 	@PostMapping(path = "/buyplan")
@@ -65,5 +76,5 @@ public class PlanController {
 		}
 
 	}
-
+	
 }

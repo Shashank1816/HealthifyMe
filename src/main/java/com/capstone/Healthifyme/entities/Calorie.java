@@ -4,7 +4,6 @@ import java.sql.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,12 +21,12 @@ public class Calorie {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int calorie_id;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "user_id")
+	@ManyToOne(targetEntity = User.class, cascade = CascadeType.ALL)
+	@JoinColumn(name = "user_id", referencedColumnName = "user_id")
 	private User user;
 
 	private int calories;
-	
+
 	@DateTimeFormat(pattern = "dd/mm/yyyy")
 	private Date date;
 
