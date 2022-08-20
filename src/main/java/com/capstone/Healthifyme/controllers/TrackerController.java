@@ -43,32 +43,23 @@ public class TrackerController {
 		return calorieRepo.findAll();
 	}
 	
-//	@PostMapping(path = "/calorie")
-//	public Calorie addCalorie(@RequestBody Calorie calorie) {
-//		System.out.println("Adding Calorie");
-//		return calorieRepo.save(calorie);
-//	}
+	@PostMapping(path = "/calorie")
+	public Calorie addCalorie(@RequestBody Calorie calorie) {
+		System.out.println("Adding Calorie");
+		return calorieRepo.save(calorie);
+	}
 	
 	@GetMapping(path = "/water")
 	public List<Water> getWater() {
 		System.out.println("Water endpoint");
 		return waterRepo.findAll();
 	}
-	//utkarsh check kar lena - teeno trackers ka post request :) 
-	@PostMapping(path="/calorie")
-	public void postcalorie(@RequestBody Calorie cal) {
-		System.out.println("Post request working");
-		System.out.println(cal.getCalories());
-		calorieRepo.save(cal);
+	
+	@PostMapping(path = "/water")
+	public Water addWater(@RequestBody Water water) {
+		System.out.println("Adding Water");
+		return waterRepo.save(water);
 	}
-	
-	
-	
-//	@PostMapping(path = "/water")
-//	public Water addWater(@RequestBody Water water) {
-//		System.out.println("Adding Water");
-//		return waterRepo.save(water);
-//	}
 	
 	@GetMapping(path = "/weight")
 	public List<Weight> getWeight() {
@@ -76,9 +67,10 @@ public class TrackerController {
 		return weightRepo.findAll();
 	}
 	
-//	@PostMapping(path = "/weight")
-//	public Weight addWeight(@RequestBody Weight weight) {
-//		System.out.println("Adding Weight");
-//		return weightRepo.save(weight);
-//	}
+	@PostMapping(path = "/weight")
+	public Weight addWeight(@RequestBody Weight weight) {
+		System.out.println("Adding Weight");
+		System.out.println(weight);
+		return weightRepo.save(weight);
+	}
 }

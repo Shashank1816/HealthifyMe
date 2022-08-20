@@ -38,10 +38,20 @@ public class User {
 	private int weight;
 
 	private int height;// in centimeter
-
+	
+	private int weight_goal;
+	
 	@ManyToOne(targetEntity = Plan.class, cascade = CascadeType.ALL)
 	@JoinColumn(name = "plan_id", referencedColumnName = "plan_id")
 	private Plan plan;
+
+	public int getWeight_goal() {
+		return weight_goal;
+	}
+
+	public void setWeight_goal(int weight_goal) {
+		this.weight_goal = weight_goal;
+	}
 
 	public int getUser_id() {
 		return user_id;
@@ -113,6 +123,13 @@ public class User {
 
 	public void setPlan(Plan plan) {
 		this.plan = plan;
+	}
+
+	@Override
+	public String toString() {
+		return "User [user_id=" + user_id + ", email=" + email + ", password=" + password + ", gender=" + gender
+				+ ", name=" + name + ", age=" + age + ", weight=" + weight + ", height=" + height + ", weight_goal="
+				+ weight_goal + ", plan=" + plan + "]";
 	}
 
 }

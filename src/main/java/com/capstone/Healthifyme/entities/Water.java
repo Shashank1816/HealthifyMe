@@ -11,7 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "water")
@@ -21,13 +21,13 @@ public class Water {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int water_id;
 
-	@ManyToOne(targetEntity = User.class, cascade = CascadeType.ALL)
+	@ManyToOne(targetEntity = User.class, cascade = CascadeType.MERGE)
 	@JoinColumn(name = "user_id", referencedColumnName = "user_id")
 	private User user;
 
 	private int water_count;
 
-	@DateTimeFormat(pattern = "dd/mm/yyyy")
+	@JsonFormat(pattern = "dd-mm-yyyy")
 	private Date date;
 
 	public Date getDate() {
