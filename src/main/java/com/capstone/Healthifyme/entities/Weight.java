@@ -4,7 +4,6 @@ import java.sql.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,7 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
 @Entity
 @Table(name = "weight")
@@ -22,13 +22,13 @@ public class Weight {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int weight_id;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "user_id")
+	@ManyToOne(targetEntity = User.class, cascade = CascadeType.MERGE)
+	@JoinColumn(name = "user_id", referencedColumnName = "user_id")
 	private User user;
 
 	private int weight;
 
-	@DateTimeFormat(pattern = "dd/mm/yyyy")
+	@JsonFormat(shape = Shape.STRING, pattern = "yyyy/mm/dd")
 	private Date date;
 
 	public int getWeight_id() {

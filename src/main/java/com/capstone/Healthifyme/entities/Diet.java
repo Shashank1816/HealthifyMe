@@ -1,12 +1,9 @@
 package com.capstone.Healthifyme.entities;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,7 +11,7 @@ import javax.persistence.Table;
 public class Diet {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int diet_id;
 
 	private String breakfast;
@@ -30,9 +27,6 @@ public class Diet {
 	private int fat;
 
 	private int carb;
-
-	@OneToOne(fetch = FetchType.EAGER, mappedBy = "diet", cascade = CascadeType.ALL)
-	private Plan plan;
 
 	public int getDiet_id() {
 		return diet_id;
@@ -97,20 +91,4 @@ public class Diet {
 	public void setCarb(int carb) {
 		this.carb = carb;
 	}
-
-	public Plan getPlan() {
-		return plan;
-	}
-
-	public void setPlan(Plan plan) {
-		this.plan = plan;
-	}
-
-	@Override
-	public String toString() {
-		return "Diet [diet_id=" + diet_id + ", breakfast=" + breakfast + ", lunch=" + lunch + ", dinner=" + dinner
-				+ ", calorieIntake=" + calorieIntake + ", protein=" + protein + ", fat=" + fat + ", carb=" + carb
-				+ ", plan=" + plan + "]";
-	}
-
 }

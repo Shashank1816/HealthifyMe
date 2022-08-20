@@ -1,16 +1,12 @@
 package com.capstone.Healthifyme.entities;
 
-import java.util.Set;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -26,7 +22,7 @@ public class User {
 //	activatedPlanId(int)(FK)
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int user_id;
 
 	private String email;
@@ -42,42 +38,19 @@ public class User {
 	private int weight;
 
 	private int height;// in centimeter
-
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "plan_id")
+	
+	private int weight_goal;
+	
+	@ManyToOne(targetEntity = Plan.class, cascade = CascadeType.ALL)
+	@JoinColumn(name = "plan_id", referencedColumnName = "plan_id")
 	private Plan plan;
 
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private Set<Calorie> calorietrackers;
-
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private Set<Water> watertrackers;
-
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	private Set<Weight> weighttrackers;
-
-	public Set<Calorie> getCalorietrackers() {
-		return calorietrackers;
+	public int getWeight_goal() {
+		return weight_goal;
 	}
 
-	public void setCalorietrackers(Set<Calorie> calorietrackers) {
-		this.calorietrackers = calorietrackers;
-	}
-
-	public Set<Water> getWatertrackers() {
-		return watertrackers;
-	}
-
-	public void setWatertrackers(Set<Water> watertrackers) {
-		this.watertrackers = watertrackers;
-	}
-
-	public Set<Weight> getWeighttrackers() {
-		return weighttrackers;
-	}
-
-	public void setWeighttrackers(Set<Weight> weighttrackers) {
-		this.weighttrackers = weighttrackers;
+	public void setWeight_goal(int weight_goal) {
+		this.weight_goal = weight_goal;
 	}
 
 	public int getUser_id() {
@@ -94,6 +67,22 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 	public String getName() {
@@ -136,28 +125,11 @@ public class User {
 		this.plan = plan;
 	}
 
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getGender() {
-		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-
 	@Override
 	public String toString() {
 		return "User [user_id=" + user_id + ", email=" + email + ", password=" + password + ", gender=" + gender
-				+ ", name=" + name + ", age=" + age + ", weight=" + weight + ", height=" + height + ", plan=" + plan
-				+ ", calorietrackers=" + calorietrackers + ", watertrackers=" + watertrackers + ", weighttrackers="
-				+ weighttrackers + "]";
+				+ ", name=" + name + ", age=" + age + ", weight=" + weight + ", height=" + height + ", weight_goal="
+				+ weight_goal + ", plan=" + plan + "]";
 	}
 
 }
