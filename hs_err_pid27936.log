@@ -1,0 +1,26 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  Internal Error (stackOverflow.cpp:252), pid=27936, tid=22676
+#  guarantee(cur_sp > stack_reserved_zone_base()) failed: not enough space to reguard - increase StackShadowPages
+#
+# JRE version: OpenJDK Runtime Environment (16.0+36) (build 16+36-2231)
+# Java VM: OpenJDK 64-Bit Server VM (16+36-2231, mixed mode, sharing, tiered, compressed oops, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dfile.encoding=UTF-8 -XX:+ShowCodeDetailsInExceptionMessages com.capstone.Healthifyme.HealthifymeApplication
+
+Host: 11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz, 8 cores, 15G,  Windows 10 , 64 bit Build 22000 (10.0.22000.708)
+Time: Fri Aug 19 17:15:47 2022 India Standard Time elapsed time: 110.088545 seconds (0d 0h 1m 50s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000002a4a2a85040):  JavaThread "http-nio-8080-exec-1" daemon [_thread_in_vm, id=22676, stack(0x000000bb78200000,0x000000bb78300000)]
+
+Stack: [0x000000bb78200000,0x000000bb78300000]
