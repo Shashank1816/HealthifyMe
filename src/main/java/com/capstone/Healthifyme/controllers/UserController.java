@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.capstone.Healthifyme.entities.Plan;
+import com.capstone.Healthifyme.entities.PlanAndGoal;
 import com.capstone.Healthifyme.entities.User;
+import com.capstone.Healthifyme.repos.PlanRepo;
 import com.capstone.Healthifyme.repos.UserRepo;
 
 @RestController
@@ -20,6 +23,9 @@ import com.capstone.Healthifyme.repos.UserRepo;
 public class UserController {
 	@Autowired
 	UserRepo userRepo;
+	
+	@Autowired
+	PlanRepo planRepo;
 
 	// just creating a sample program for getting all the users
 	@GetMapping(path = "/users")
@@ -48,12 +54,15 @@ public class UserController {
 	}
 
 	@PutMapping(path = "/users/{id}")
-	public User updateUser(@RequestBody User user, @PathVariable Integer id) {
+	public User updateUser(@RequestBody PlanAndGoal planAndGoal, @PathVariable Integer id) {
+		System.out.println("Finding plan : ");
+		Plan plan = planRepo.findById(planAndGoal.getPlan_id()).orElse(new Plan());
 		System.out.println("Updating user : ");
 		return userRepo.findById(id).map(user_in_db -> {
-			user_in_db.setPlan(user.getPlan());
+			user_in_db.setPlan(plan);
+			user_in_db.setWeight_goal(planAndGoal.getGoal());
 			return userRepo.save(user_in_db);
-		}).orElse(userRepo.save(user));
+		}).orElse(new User());
 	}
 
 }
