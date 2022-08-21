@@ -11,11 +11,17 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.capstone.Healthifyme.entities.Calorie;
 import com.capstone.Healthifyme.entities.Plan;
 import com.capstone.Healthifyme.entities.PlanAndGoal;
 import com.capstone.Healthifyme.entities.User;
+import com.capstone.Healthifyme.entities.Water;
+import com.capstone.Healthifyme.entities.Weight;
+import com.capstone.Healthifyme.repos.CalorieRepo;
 import com.capstone.Healthifyme.repos.PlanRepo;
 import com.capstone.Healthifyme.repos.UserRepo;
+import com.capstone.Healthifyme.repos.WaterRepo;
+import com.capstone.Healthifyme.repos.WeightRepo;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -26,6 +32,15 @@ public class UserController {
 	
 	@Autowired
 	PlanRepo planRepo;
+	
+	@Autowired
+	CalorieRepo calorieRepo;
+	
+	@Autowired
+	WaterRepo waterRepo;
+	
+	@Autowired
+	WeightRepo weightRepo;
 
 	// just creating a sample program for getting all the users
 	@GetMapping(path = "/users")
@@ -38,6 +53,27 @@ public class UserController {
 	public User getUser(@PathVariable Integer id) {
 		System.out.println("Getting user");
 		return userRepo.findById(id).orElse(new User());
+	}
+	
+	@GetMapping(path = "/users/{id}/calorie")
+	public List<Calorie> getUsersCalorie(@PathVariable Integer id){
+		System.out.println("Getting user's Calories : ");
+		User user = userRepo.findById(id).orElse(new User());
+		return calorieRepo.findByUser(user);
+	}
+	
+	@GetMapping(path = "/users/{id}/water")
+	public List<Water> getUsersWater(@PathVariable Integer id){
+		System.out.println("Getting user's Water : ");
+		User user = userRepo.findById(id).orElse(new User());
+		return waterRepo.findByUser(user);
+	}
+	
+	@GetMapping(path = "/users/{id}/weight")
+	public List<Weight> getUsersWeight(@PathVariable Integer id){
+		System.out.println("Getting user's Weight : ");
+		User user = userRepo.findById(id).orElse(new User());
+		return weightRepo.findByUser(user);
 	}
 
 	@PostMapping(path = "/login")
